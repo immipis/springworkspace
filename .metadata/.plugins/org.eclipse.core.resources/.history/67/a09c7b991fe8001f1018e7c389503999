@@ -1,0 +1,5 @@
+package com.java.app.product;
+
+public interface RemoteControl {
+
+}

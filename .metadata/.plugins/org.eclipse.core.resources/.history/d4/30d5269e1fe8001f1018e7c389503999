@@ -1,0 +1,15 @@
+package com.java.app.main;
+
+import com.java.app.emp.EmpVO;
+
+public class MainExample {
+	
+	public static void main(String[] args) {
+		EmpVO first = new EmpVO();
+		EmpVO second = new EmpVO(100,"hong");
+		
+		System.out.println(first);
+		System.out.println(second);
+	}
+	public void tunrOFF();
+}

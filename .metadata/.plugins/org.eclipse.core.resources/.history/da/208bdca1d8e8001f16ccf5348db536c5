@@ -1,0 +1,11 @@
+package com.yedam.app.spring.xml;
+
+public class User {
+	private String name;
+	private String ssn;
+	
+	User(String name, String ssn){
+		this.name = name;
+		this.ssn = ssn;
+	}
+}

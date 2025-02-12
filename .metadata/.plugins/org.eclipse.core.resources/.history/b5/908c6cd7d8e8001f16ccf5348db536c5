@@ -1,0 +1,27 @@
+package com.yedam.app.spring.xml;
+
+public class NHCard implements Card {
+	private User owner;
+	
+	NHCard(User owner){
+		this.owner = owner;
+	}
+	@Override
+	public void showOwerInfo() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void payment() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addServices() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

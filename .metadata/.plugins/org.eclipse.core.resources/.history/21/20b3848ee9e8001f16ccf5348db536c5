@@ -1,0 +1,18 @@
+package com.yedam.app.spring.javabase;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration // Spring 설정
+public class JavaConfig {
+	
+	@Bean // 메서드를 실행한 결과를 Bean으로 등록
+	public User user() {
+		return new User();
+	}
+	
+	@Bean 
+	public NHCard nhCard(User user) {
+		return new NHCard(user);
+	}
+}

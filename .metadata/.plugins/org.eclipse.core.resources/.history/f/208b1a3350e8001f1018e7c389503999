@@ -1,0 +1,12 @@
+package com.yedam.app.java;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+
+public class MainExample {
+	public static void main(String[] args) {
+		ApplicationContext ctx = new GenericApplicationContext("classpath:applicationContext.xml");
+		Restaurant res = (Restaurant)ctx.getBean(Restaurant.class);
+		res.run();
+	}
+}
