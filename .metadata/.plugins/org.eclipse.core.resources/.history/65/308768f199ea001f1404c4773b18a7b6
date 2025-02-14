@@ -1,0 +1,5 @@
+package com.yedam.app.emp.service;
+
+public interface EmpService {
+	// 사이트에서 제공하는 서비스
+}

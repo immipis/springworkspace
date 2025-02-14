@@ -1,0 +1,8 @@
+package com.yedam.app.emp.service.impl;
+
+import org.springframework.stereotype.Service;
+
+@Service //@Transcational
+public class EmpServiceImpl {
+	
+}

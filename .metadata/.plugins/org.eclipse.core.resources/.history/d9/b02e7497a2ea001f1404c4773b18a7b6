@@ -1,0 +1,6 @@
+package com.yedam.app.aop.mapper;
+
+public interface AaaMapper {
+	@Insert("INSERT INTO tbl_aaa VALUES(#{value})")
+	public int insert(String value);
+}

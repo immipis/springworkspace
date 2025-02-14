@@ -1,0 +1,9 @@
+package com.yedam.app.emp.service.impl;
+
+import org.springframework.stereotype.Service;
+
+@Service //@Transcational 사용 가능
+public class EmpServiceImpl {
+	// db 가 필요한 경우 맵퍼는 여러개 가능
+	private EmpMapper empMapper;
+}
