@@ -1,9 +1,0 @@
-package com.yedam.app.mybatis.mapper;
-
-public interface TestEmpMapper {
-	// EmpDAO => EmpMapper
-	// 전체조회 
-	public List<EmpInfo> empList();
-	
-	
-}
