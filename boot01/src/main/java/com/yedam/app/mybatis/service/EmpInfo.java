@@ -15,4 +15,5 @@ public class EmpInfo {
 	private String lastName;
 	private Date hireDate;
 	private double salary;
+	private int jobId;
 }
