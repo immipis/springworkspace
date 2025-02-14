@@ -1,9 +1,0 @@
-package com.yedam.app.java;
-
-public class MainExample {
-	public static void main(String[] args) {
-		Restaurant res = new Restaurant();
-		
-		res.run();
-	}
-}

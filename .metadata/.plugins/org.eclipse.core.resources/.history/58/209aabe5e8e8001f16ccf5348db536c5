@@ -1,8 +1,0 @@
-package com.yedam.app.spring.javabase;
-
-import org.springframework.context.annotation.Configuration;
-
-@Configuration // Spring 설정
-public class JavaConfig {
-
-}
