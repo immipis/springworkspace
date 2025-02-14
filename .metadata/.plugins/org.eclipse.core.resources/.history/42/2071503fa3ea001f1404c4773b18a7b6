@@ -1,5 +1,0 @@
-package com.yedam.app.aop.service.impl;
-
-public class AaaServiceImpl implements AaaService{
-	private AaaMapper aaaMapper;
-}

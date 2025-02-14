@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;com.java.app.mp&apos; to &apos;com.java.app.emp&apos;&#x0D;&#x0A;- Original project: &apos;review_java&apos;&#x0D;&#x0A;- Original element: &apos;review_java/src/com.java.app.mp&apos;&#x0D;&#x0A;- Renamed element: &apos;review_java/src/com.java.app.emp&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.java.app.mp&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.java.app.mp" name="com.java.app.emp" qualified="false" references="true" stamp="1739236202706" textual="false" version="1.0"/>
-</session>

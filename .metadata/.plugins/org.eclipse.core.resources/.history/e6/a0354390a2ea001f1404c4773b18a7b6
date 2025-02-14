@@ -1,6 +1,0 @@
-package com.yedam.app.aop.mapper;
-
-public interface AaaMapper {
-	@Insert("")
-	public int insert(String value);
-}

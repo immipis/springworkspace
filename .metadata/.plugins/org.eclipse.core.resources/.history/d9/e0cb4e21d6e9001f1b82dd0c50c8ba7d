@@ -1,5 +1,0 @@
-package com.yedam.app.emp.mapper;
-
-public interface EmpMapper {
-	//Mapper의 골격 혹은 구조 의미
-}
