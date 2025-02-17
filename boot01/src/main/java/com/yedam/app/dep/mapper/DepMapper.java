@@ -11,3 +11,4 @@ public interface DepMapper {
 	public int updateDepInfo(DepVO depVO);
 	public int deleteDepInfo(int depId);
 }
+
