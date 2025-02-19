@@ -134,6 +134,8 @@
 			<if test="hireDate != null">
 			, hire_date = #{hireDate}
 			</if>
+			, email = #{email}
+			, salary = #{salary}
 		WHERE employee_id = #{employeeId} 	
 	</update>
 	

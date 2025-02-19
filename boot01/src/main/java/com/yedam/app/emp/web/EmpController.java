@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.app.emp.service.EmpService;
@@ -61,17 +60,20 @@ public class EmpController {
 	public String empInsertForm() {
 		return "emp/insert";
 	}
-
-	// 등록 - 처리 : POST => form 태그를 통한 submit
-	// => 이미지가 있는 경우 multipart/form-data
-	// => 이미지가 없는 경우 application/x-www-from-urlencoded
-	@RequestMapping("empInsert")
-	public String empInsertProcess(EmpVO empvo) {
-		int eid = empService.createEmpInfo(empvo);
+	//classpath:/templates/emp/insert.html
+	
+	//등록 - 처리 : POST => form 태그를 통한 submit
+	// 					=> 이미지가 있는 경우 multipart/form-data
+	//					=> 이미지가 없는 경우 application/x-www-form-urlencoded
+	@PostMapping("empInsert")
+	public String empInsertProcess(EmpVO empVO) {
+		int eid = empService.createEmpInfo(empVO);
+		System.out.println("=============="+eid);
 		String url = null;
-		if (eid > -1) {
+		if(eid > -1) {
+			// 정상적으로 등록 된 경우
 			url = "redirect:empInfo?employeeId=" + eid;
-		} else {
+		}else {
 			url = "redirect:empList";
 		}
 		return url;
@@ -97,7 +99,7 @@ public class EmpController {
 	}
 
 	// 단건삭제 - 처리 : GET 전달 받을 데이터 1 건 => QueryStirng(@RequestParam)
-	@GetMapping("empDelete")
+	@GetMapping("empDelete") //empDelete?employeeId=100
 	public String empDelete(Integer employeeId) {
 		empService.removeEmpInfo(employeeId);
 		return "redirect:empList";

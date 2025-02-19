@@ -7,9 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.app.emp.service.EmpVO;
-import com.yedam.app.emp.service.EmpService;
 import com.yedam.app.emp.mapper.EmpMapper;
+import com.yedam.app.emp.service.EmpService;
+import com.yedam.app.emp.service.EmpVO;
 
 @Service
 public class EmpServiceImpl implements EmpService{
@@ -34,7 +34,7 @@ public class EmpServiceImpl implements EmpService{
 	public int createEmpInfo(EmpVO empVO) {
 		int result = empMapper.insertEmpInfo(empVO);
 		
-		return result == 1 ? empVO.getDepartmentId() : -1;
+		return result == 1 ? empVO.getEmployeeId() : -1;
 		
 	}
 	

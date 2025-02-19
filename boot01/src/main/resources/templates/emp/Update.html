@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="content"
+>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<form name="updateForm" th:object="${emp}"> <!-- /*<-- 이렇게 선언하면 아래처럼 쓸수 있음*/ -->
+		<h3>사원 정보 수정</h3>
+		<div>
+			<label for="eid">사원번호</label>
+			<input type="text" id="eid" th:field="*{employeeId}" readonly></input>
+		</div>
+		<div>
+			<label for="ename">이름</label> 
+			<input type="text" id="ename" th:field="*{lastName}" required></input>
+		</div>
+		<div>
+			<label for="email">이메일</label> 
+			<input type="email" id="email" th:field="*{email}" required></input>
+		</div>
+		<div>
+			<label for="hDate">입사일</label> 
+			<input type="date" id="hDate" th:field="*{hireDate}" required></input>
+		</div>
+		<div>
+			<label for="job">업무</label> 
+			<input type="text" id="job" th:field="*{jobId}" required></input>
+		</div>
+				<div>
+			<label for="sal">급여</label> 
+			<input type="number" id="sal" step="0.01" min="1" th:field="*{salary}" required></input>
+		</div>
+		<div>
+			<button type="button">수정</button>
+		</div>
+	</form>
+	<script>
+		const context = document.querySelector('meta[name="contextPath"]').getAttribute('value');
+		document.querySelector("button").addEventListener('click',updateAjax);
+		function updateAjax(event){
+			// 1) 보낼 데이터 가져오기
+			let dataObj = getFormData();
+			// 2) AJAX
+			fetch(`${context}/empUpdate`,{
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(dataObj)
+				})
+			.then(res=>res.json())
+			.then(data=>{
+				// 3) 응답받은 데이터 처리
+				if(data.result){
+					alert(`${data.target.employeeId}를 수정!`)
+				}
+				else{
+					alert("수정되지 안았습니다")
+				}
+			})
+			.catch(err=>console.log(err))
+		}
+		
+		function getFormData(){
+/* 			let obj = {};
+			document.querySelectorAll("input").forEach((element) => {
+			    obj[element.name] = element.value;
+			});
+			console.log(obj); */
+			let formData = new FormData(updateForm)
+			let obj = {};
+			formData.forEach((value,name)=>{
+				obj[name]=value;
+			});
+			console.log(obj)
+			return obj;
+		};
+	</script>
+</body>
+</html>
