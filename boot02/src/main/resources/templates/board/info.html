@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/main_layout}"
+	layout:fragment="content">
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div>
+		<div>
+			<label for="bno">게시판 번호</label> <input type="text" id="bno"
+				th:value="${board.bno}" readonly></input>
+		</div>
+		<div>
+			<label for="title">제목</label> <input type="text" id="title"
+				th:value="${board.title}" readonly></input>
+		</div>
+		<div>
+			<label for="writer">작성자</label> <input type="text" id="writer"
+				th:value="${board.writer}" readonly></input>
+		</div>
+
+		<div>
+			<label for="contents">내용</label> 
+			<input type="text" id="contents" th:value="${board.contents}" readonly></input>
+		</div>
+		<div>
+			<label for="regDate">작성일</label> 
+			<input type="date" id="regDate" th:value="${#dates.format(board.regDate, 'yyyy-MM-dd')}" readonly></input>
+		</div>
+		<div>
+			<label for="image">첨부파일</label> 
+			<input width="20%" type="image" id="image" th:src="@{/images/{file}(file=${board.image})}" readonly></input>
+		</div>
+		<div>
+			<button type="button" class="btn btn-primary">수정</button>
+			<button type="button" class="btn btn-light" th:onclick="|location.href = '@{/boardList}';|">목록</button>
+			<button type="button" class="btn btn-dark">삭제</button>
+		</div>
+	</div>
+</body>
+</html>

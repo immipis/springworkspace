@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/main_layout}">
+<!--/*각 기능별 페이지에 layout 적용*/-->
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div class="container text-center" layout:fragment="content">
+		<h3>☆게시글 목록★</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<!-- yyyy mm dd -->
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="post, index: ${boards}">
+					<tr th:onclick="|location.href = '@{/boardInfo(bno=${post.bno})}';|">
+						<td>[[${post.bno}]]</td>
+						<td>[[${post.title}]]</td>
+						<td>[[${post.writer}]]</td>
+						<td>[[${#dates.format(post.regDate, "yyyy년MM월dd일")}]]</td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
