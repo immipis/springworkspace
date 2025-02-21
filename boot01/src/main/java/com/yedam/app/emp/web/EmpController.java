@@ -68,7 +68,6 @@ public class EmpController {
 	@PostMapping("empInsert")
 	public String empInsertProcess(EmpVO empVO) {
 		int eid = empService.createEmpInfo(empVO);
-		System.out.println("=============="+eid);
 		String url = null;
 		if(eid > -1) {
 			// 정상적으로 등록 된 경우

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.yedam.app.board.mapper.BoardMapper;
 import com.yedam.app.board.service.BoardService;
 import com.yedam.app.board.service.BoardVO;
+import com.yedam.app.board.service.DayoVO;
+
 
 @Service // bean 등록 => @Transcational 사용가능한 게 서비스 뿐
 public class BoardServiceImpl implements BoardService{
@@ -30,8 +32,13 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int insertBoardInfo(BoardVO boardVO) {
-		return boardMapper.insertBoard(boardVO);
+		int result = boardMapper.insertBoard(boardVO);
+		return result == 1 ? boardVO.getBno() : -1;
 	}
 	
+	@Override
+	public List<DayoVO> findDayoBook(DayoVO dayoVO) {
+		return boardMapper.selectInfo(dayoVO);
+	}
 	
 }

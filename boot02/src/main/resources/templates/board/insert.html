@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/main_layout}"
+	layout:fragment="content">
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div>
+		<form name="insertForm" th:action="@{/boardInsert}" method="post">
+			<div>
+				<label for="title">제목</label> <input id="title" type="text" name="title"></input>
+			</div>
+			<div>
+				<label for="writer">작성자</label> <input id="writer" type="text" name="writer"></input>
+			</div>
+
+			<div>
+				<label for="contents">내용</label> <textarea id="contents" name="contents"></textarea>
+			</div>
+			<div>
+				<label for="image">첨부파일</label> <input id="image" type="text" name="image"></input>
+			</div>
+			<div>
+				<label for="regDate">등록날짜</label> <input id="regDate" type="text" name="regDate"></input>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">등록</button>
+			</div>
+		</form>
+	</div>
+	<script>
+		insertForm.addEventListener("submit",e=>{
+			e.preventDefault();
+			
+			let titleInput = document.querySelector('form [name="title"]');
+			if(titleInput.value == ''){
+				alert("제목이 입력되지 않았습니다");
+				titleInput.focus();
+				return;
+			}
+			
+			let writerInput = document.querySelector('form [name="writer"]');
+			if(writerInput.value == ''){
+				alert("작성자가 입력되지 않았습니다");
+				writerInput.focus();
+				return;
+			}
+			
+			let regDateInput = document.querySelector('form [name="regDate"]');
+			if(regDateInput.value == ''){
+				alert("날짜가 입력되지 않았습니다");
+				regDateInput.focus();
+				return;
+			}
+			
+			alert("정상적으로 등록되었습니다");
+			insertForm.submit();
+		})
+	</script>
+</body>
+</html>
